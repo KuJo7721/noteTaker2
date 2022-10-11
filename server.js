@@ -1,7 +1,8 @@
 const express = require('express');
 const path = require('path');
-const db = require("./db/db.json");
+let db = require("./db/db.json");
 console.log(db);
+const { v4: uuidv4 } = require('uuid');
 
 const PORT = process.env.port || 3001;
 
@@ -13,8 +14,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static('public'));
 
-
-
+//api routes
+app.get('/api/notes',(req, res)=.{
+    return res.json(db)
+})
 
 //html routes
 
